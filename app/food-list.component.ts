@@ -25,17 +25,16 @@ export class FoodListComponent {
   public foodList: Food[];
   public onFoodSelect: EventEmitter<Food>;
   public selectedFood: Food;
+  public food: Food;
   constructor() {
     this.onFoodSelect = new EventEmitter();
   }
   foodClicked(clickedFood: Food): void {
-    console.log('child', clickedFood);
     this.selectedFood = clickedFood;
     this.onFoodSelect.emit(clickedFood);
   }
-  createFood(name: string, description: string, calories: number): void {
-    this.foodList.push(
-      new Food(name, description, calories, this.foodList.length)
+  createFood(newFood: any): void {
+    this.foodList.push(new Food(newFood[0], newFood[1], newFood[2])
     );
   }
 }
