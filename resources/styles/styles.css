@@ -1,3 +1,7 @@
+.selected {
+  color: green;
+}
+
 /* Temp Styling */
 body {
   background-color: black;

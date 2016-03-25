@@ -1,16 +1,17 @@
-import { Component } from 'angular2/core';
+import { Component, EventEmitter } from 'angular2/core';
+import { FoodListComponent } from './food-list.component';
+import { Food } from './food.model';
 
 @Component({
   selector: 'my-app',
+  directives: [FoodListComponent],
   template: `
     <div class="container">
       <h1>Meal Tracker</h1>
-      <div *ngFor="#food of foods">
-        <h3>Food Item: {{ food.name }}</h3>
-        <h5>Description: {{ food.description }}</h5>
-        <h5># of Calories: {{ food.calories }}</h5>
-      </div>
-      
+      <food-list
+        [foodList]="foods"
+        (onFoodSelect)="foodWasSelected($event)">
+      </food-list>
     </div>
   `
 })
@@ -23,11 +24,7 @@ export class AppComponent {
       new Food("Salad", "One bowl of salad", 100, 0)
     ];
   }
-}
-
-export class Food {
-  public done: boolean = false;
-  constructor(public name: string, public description: string, public calories: number, public id: number) {
-
+  foodWasSelected(clickedFood: Food): void {
+    console.log('parent', clickedFood);
   }
 }
