@@ -32,7 +32,7 @@
 
 ## Technologies Used
 
-##### HTML, CSS, Sass, JavaScript, Angular2, Gulp
+##### HTML, CSS, Sass, JavaScript, TypeScript, Node.js, Angular2, Bower, Gulp
 
 ### License
 
