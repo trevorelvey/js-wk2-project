@@ -12,9 +12,8 @@ import { HealthPipe } from './health.pipe';
   pipes: [HealthPipe],
   directives: [FoodComponent, EditFoodDetailsComponent, NewFoodComponent],
   template: `
-
-    <select (change)="onChange($event.target.value)">
-      <option value="all">Show All Food Items</option>
+    <select (change)="onChange($event.target.value)" class="filter">
+      <option value="all" selected="selected">Show All Food Items</option>
       <option value="low">Show Low Calorie Food Items</option>
       <option value="high">Show High Calorie Food Items</option>
     </select>
@@ -33,8 +32,7 @@ export class FoodListComponent {
   public foodList: Food[];
   public onFoodSelect: EventEmitter<Food>;
   public selectedFood: Food;
-  public food: Food;
-  public filterCalorie: string = "notLow";
+  public filterHealth: string = "all";
   constructor() {
     this.onFoodSelect = new EventEmitter();
   }
@@ -47,6 +45,6 @@ export class FoodListComponent {
     );
   }
   onChange(filterOption) {
-    this.filterCalorie = filterOption;
+    this.filterHealth = filterOption;
   }
 }

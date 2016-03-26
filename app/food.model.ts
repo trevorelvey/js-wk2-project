@@ -1,5 +1,5 @@
 export class Food {
-  public done: boolean = false;
+  public health: boolean = false;
   constructor(public name: string, public description: string, public calories: number, public id: number) {
 
   }
