@@ -5,6 +5,12 @@ import {Food} from './food.model';
   selector: 'edit-food-details',
   inputs: ['food'],
   template: `
+    <div class="well">
+      <div class="selectedFood">
+        <h5>Description: {{ food.description }}</h5>
+        <h5># of Calories: {{ food.calories }}</h5>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-4">
         <h5>Edit Food Item:</h5>

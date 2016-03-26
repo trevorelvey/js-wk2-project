@@ -20,8 +20,7 @@ export class AppComponent {
   public foods: Food[];
   constructor(){
     this.foods = [
-      new Food("Pizza Slice", "One slice of pepperoni pizza", 300, 0),
-      new Food("Salad", "One bowl of salad", 100, 1)
+
     ];
   }
   foodWasSelected(clickedFood: Food): void {
