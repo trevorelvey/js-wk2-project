@@ -3,22 +3,30 @@ import { FoodComponent } from './food.component';
 import { Food } from './food.model'
 import { EditFoodDetailsComponent } from './edit-food-details.component';
 import { NewFoodComponent } from './new-food.component';
+import { HealthPipe } from './health.pipe';
 
 @Component({
   selector: 'food-list',
   inputs: ['foodList'],
   outputs: ['onFoodSelect'],
+  pipes: [HealthPipe],
   directives: [FoodComponent, EditFoodDetailsComponent, NewFoodComponent],
   template: `
-    <food-display *ngFor="#currentFood of foodList"
+
+    <select (change)="onChange($event.target.value)">
+      <option value="all">Show All Food Items</option>
+      <option value="low">Show Low Calorie Food Items</option>
+      <option value="high">Show High Calorie Food Items</option>
+    </select>
+    <food-display *ngFor="#currentFood of foodList | health:filterHealth"
       (click)="foodClicked(currentFood)"
       [class.selected]="currentFood === selectedFood"
       [food]="currentFood">
     </food-display>
-    <new-food (onSubmitNewFood)="createFood($event)">
-    </new-food>
     <edit-food-details *ngIf="selectedFood" [food]="selectedFood">
     </edit-food-details>
+    <new-food (onSubmitNewFood)="createFood($event)">
+    </new-food>
   `
 })
 export class FoodListComponent {
@@ -26,6 +34,7 @@ export class FoodListComponent {
   public onFoodSelect: EventEmitter<Food>;
   public selectedFood: Food;
   public food: Food;
+  public filterCalorie: string = "notLow";
   constructor() {
     this.onFoodSelect = new EventEmitter();
   }
@@ -36,5 +45,8 @@ export class FoodListComponent {
   createFood(newFood: any): void {
     this.foodList.push(new Food(newFood[0], newFood[1], newFood[2])
     );
+  }
+  onChange(filterOption) {
+    this.filterCalorie = filterOption;
   }
 }
