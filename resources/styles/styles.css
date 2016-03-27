@@ -1,9 +1,42 @@
-.selected {
-  color: green;
+body {
+  text-align: center;
+  background: url("/resources/images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% auto;
+  background-color: white;
+  color: #E5781D;
 }
 
-/* Temp Styling */
-body {
-  background-color: black;
+.filter {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #E5781D;
+  border: 2px solid #E5781D;
+  height: 40px;
+}
+
+.input-md {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #E5781D;
+  border: 2px solid #E5781D;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.selected {
   color: grey;
+}
+
+.btn {
+  background: rgba(255, 255, 255, 0.6);
+  color: #E5781D;
+  border: 2px solid #E5781D;
+  height: 40px;
+}
+
+.well {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding-top: 5px;
+  min-height: 180px;
 }
