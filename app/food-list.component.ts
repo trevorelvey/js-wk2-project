@@ -41,7 +41,7 @@ export class FoodListComponent {
     this.onFoodSelect.emit(clickedFood);
   }
   createFood(newFood: any): void {
-    this.foodList.push(new Food(newFood[0], newFood[1], newFood[2])
+    this.foodList.push(newFood(newFood[0], newFood[1], newFood[2])
     );
   }
   onChange(filterOption) {

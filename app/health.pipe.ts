@@ -14,13 +14,14 @@ export class HealthPipe implements PipeTransform {
           return !food.health;
         }
       });
-    } else if(desiredCalorieLevel === "high") {
+    } else if (desiredCalorieLevel === "high") {
       return input.filter((food) => {
-        if(food.calories >= 300) {
+        if(food.calories >300){
           return !food.health;
+          }
         });
       } else {
-        return input;
+      return input;
       }
     }
   }

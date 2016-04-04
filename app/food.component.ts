@@ -12,6 +12,3 @@ import { Food } from './food.model';
 export class FoodComponent {
   public food: Food;
 }
-
-// <h5>Description: {{ food.description }}</h5>
-// <h5># of Calories: {{ food.calories }}</h5>
