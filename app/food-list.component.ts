@@ -40,9 +40,8 @@ export class FoodListComponent {
     this.selectedFood = clickedFood;
     this.onFoodSelect.emit(clickedFood);
   }
-  createFood(newFood: any): void {
-    this.foodList.push(new Food(newFood[0], newFood[1], newFood[2])
-    );
+  createFood(newFood: Food): void {
+    this.foodList.push(newFood)
   }
   onChange(filterOption) {
     this.filterHealth = filterOption;
